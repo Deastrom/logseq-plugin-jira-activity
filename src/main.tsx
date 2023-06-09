@@ -67,24 +67,26 @@ async function updateJiraActivity() {
             return response.text();
           })
           const xmlObj = xmlParser.parse(activitystreamxml)
-          for await (const thisEntry of xmlObj.feed.entry) {
-            const title:string = thisEntry.title
-            const reAuthor = new RegExp(`<a.*class="activity-item-user activity-item-author">${thisEntry.author.name}</a>`, "gm")
-            const reAssigneeOpen = new RegExp(`'<a.*class="activity-item-user">`, "gm")
-            const reAssigneeClose = new RegExp(`</a>'`, "gm")
-            const reSpaces = new RegExp("\\s\\s+", "gm")
-            const value = title.replace(reAuthor,`[[${thisEntry.author.name}]]`).replace(reAssigneeOpen, '[[').replace(reAssigneeClose, ']]').replace(reSpaces, ' ')
-            const newblock = await logseq.Editor.insertBlock(
-              currentBlock.uuid,
-              value
-            )
-            if (newblock !== null && thisEntry.content !== undefined) {
-              const newblockchild = await logseq.Editor.insertBlock(
-                newblock.uuid,
-                thisEntry.content
+          if (xmlObj.feed.entry !== undefined){
+            for await (const thisEntry of xmlObj.feed.entry) {
+              const title:string = thisEntry.title
+              const reAuthor = new RegExp(`<a.*class="activity-item-user activity-item-author">${thisEntry.author.name}</a>`, "gm")
+              const reAssigneeOpen = new RegExp(`'<a.*class="activity-item-user">`, "gm")
+              const reAssigneeClose = new RegExp(`</a>'`, "gm")
+              const reSpaces = new RegExp("\\s\\s+", "gm")
+              const value = title.replace(reAuthor,`[[${thisEntry.author.name}]]`).replace(reAssigneeOpen, '[[').replace(reAssigneeClose, ']]').replace(reSpaces, ' ')
+              const newblock = await logseq.Editor.insertBlock(
+                currentBlock.uuid,
+                value
               )
-              if (newblockchild !== null){
-                await logseq.Editor.setBlockCollapsed(newblock.uuid, true)
+              if (newblock !== null && thisEntry.content !== undefined) {
+                const newblockchild = await logseq.Editor.insertBlock(
+                  newblock.uuid,
+                  thisEntry.content
+                )
+                if (newblockchild !== null){
+                  await logseq.Editor.setBlockCollapsed(newblock.uuid, true)
+                }
               }
             }
           }
