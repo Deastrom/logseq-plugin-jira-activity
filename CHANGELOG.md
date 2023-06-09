@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/Deastrom/logseq-plugin-jira-activity/compare/v1.0.0...v1.0.1) (2023-06-09)
+
+
+### Bug Fixes
+
+* :ambulance: handle empty feed ([c5a1552](https://github.com/Deastrom/logseq-plugin-jira-activity/commit/c5a15527745438b9f7dbd0198748e33f7c777077))
+
 # 1.0.0 (2023-06-09)
 
 
