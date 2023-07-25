@@ -75,12 +75,14 @@ async function updateJiraActivity() {
               const reAssigneeClose = new RegExp(`</a>'`, "gm")
               const reSpaces = new RegExp("\\s\\s+", "gm")
               const reApostrophe = new RegExp('&#39;', "gm")
+              const rePriority = new RegExp('\'#(.*?)\'', "gm")
               const value = title
                 .replace(reAuthor,`[[${thisEntry.author.name}]]`)
                 .replace(reAssigneeOpen, '[[')
                 .replace(reAssigneeClose, ']]')
                 .replace(reSpaces, ' ')
                 .replace(reApostrophe, '\'')
+                .replace(rePriority, '$1')
               const newblock = await logseq.Editor.insertBlock(
                 currentBlock.uuid,
                 value
