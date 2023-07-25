@@ -1,6 +1,6 @@
 {
   "name": "logseq-plugin-jira-activity",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "dist/index.html",
   "scripts": {
     "dev": "echo 'dont use vite dev server'",

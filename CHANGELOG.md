@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/Deastrom/logseq-plugin-jira-activity/compare/v1.0.1...v1.0.2) (2023-07-25)
+
+
+### Bug Fixes
+
+* Fix Jira Priority Changes adds LogSeq Tags ([01c8a38](https://github.com/Deastrom/logseq-plugin-jira-activity/commit/01c8a38e26d5ad13b2279d0926bd5daeb78e67fa))
+
 ## [1.0.1](https://github.com/Deastrom/logseq-plugin-jira-activity/compare/v1.0.0...v1.0.1) (2023-06-09)
 
 
