@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/Deastrom/logseq-plugin-jira-activity/compare/v1.0.2...v1.1.0) (2023-10-04)
+
+
+### Features
+
+* Moved to support multiple strings and tags based on regex hits ([1e683f4](https://github.com/Deastrom/logseq-plugin-jira-activity/commit/1e683f408f571bf4793b1c67001dc850bca679f8))
+
 ## [1.0.2](https://github.com/Deastrom/logseq-plugin-jira-activity/compare/v1.0.1...v1.0.2) (2023-07-25)
 
 
