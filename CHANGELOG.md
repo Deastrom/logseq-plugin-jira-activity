@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/Deastrom/logseq-plugin-jira-activity/compare/v1.1.0...v1.1.1) (2023-10-17)
+
+
+### Bug Fixes
+
+* Wasn't handling single entry feeds ([0186f49](https://github.com/Deastrom/logseq-plugin-jira-activity/commit/0186f4969af1f0bcf4a2b7df39333d8c39de9805))
+
 # [1.1.0](https://github.com/Deastrom/logseq-plugin-jira-activity/compare/v1.0.2...v1.1.0) (2023-10-04)
 
 
