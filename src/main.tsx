@@ -45,7 +45,13 @@ async function updateJiraActivity() {
             })
             const xmlObj = xmlParser.parse(activitystreamxml)
             if (xmlObj.feed.entry !== undefined) {
-              for await (const thisEntry of xmlObj.feed.entry) {
+              let entries
+              if (xmlObj.feed.entry.length) {
+                entries = xmlObj.feed.entry
+              } else {
+                entries = [xmlObj.feed.entry]
+              }
+              for await (const thisEntry of entries) {
                 const title: string = thisEntry.title
                 const reSpaces = new RegExp("\\s\\s+", "gm")
                 const reApostrophe = new RegExp('&#39;', "gm")
